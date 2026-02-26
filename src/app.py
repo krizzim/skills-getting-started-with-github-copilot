@@ -38,6 +38,45 @@ activities = {
         "schedule": "Mondays, Wednesdays, Fridays, 2:00 PM - 3:00 PM",
         "max_participants": 30,
         "participants": ["john@mergington.edu", "olivia@mergington.edu"]
+    },
+    # sports‑related
+    "Soccer Team": {
+        "description": "Practice and compete in inter‑school soccer matches",
+        "schedule": "Mondays and Thursdays, 4:00 PM - 6:00 PM",
+        "max_participants": 18,
+        "participants": ["alex@mergington.edu", "lea@mergington.edu"]
+    },
+    "Swimming Club": {
+        "description": "Improve swimming technique and endurance",
+        "schedule": "Wednesdays, 5:00 PM - 6:30 PM",
+        "max_participants": 25,
+        "participants": ["maria@mergington.edu", "kevin@mergington.edu"]
+    },
+    # artistic
+    "Drama Club": {
+        "description": "Rehearse and perform plays and skits",
+        "schedule": "Tuesdays, 3:00 PM - 5:00 PM",
+        "max_participants": 20,
+        "participants": ["lily@mergington.edu", "omar@mergington.edu"]
+    },
+    "Art Workshop": {
+        "description": "Explore painting, sculpture, and other visual arts",
+        "schedule": "Fridays, 1:00 PM - 3:00 PM",
+        "max_participants": 15,
+        "participants": ["zoe@mergington.edu", "carlos@mergington.edu"]
+    },
+    # intellectual
+    "Math Olympiad": {
+        "description": "Prepare for math competitions and problem solving",
+        "schedule": "Thursdays, 4:30 PM - 6:00 PM",
+        "max_participants": 10,
+        "participants": ["nina@mergington.edu", "ryan@mergington.edu"]
+    },
+    "Science Fair": {
+        "description": "Develop projects and experiments for the annual fair",
+        "schedule": "Wednesdays, 2:00 PM - 4:00 PM",
+        "max_participants": 12,
+        "participants": ["sara@mergington.edu", "jon@mergington.edu"]
     }
 }
 
@@ -61,6 +100,10 @@ def signup_for_activity(activity_name: str, email: str):
 
     # Get the specific activity
     activity = activities[activity_name]
+
+    # Check if student is already signed up
+    if email in activity["participants"]:
+        raise HTTPException(status_code=400, detail="Student already signed up for this activity")
 
     # Add student
     activity["participants"].append(email)

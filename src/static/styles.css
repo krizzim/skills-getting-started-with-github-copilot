@@ -89,13 +89,32 @@ section h3 {
   padding-left: 0.5rem;
 }
 .remove-participant {
-  cursor: pointer;
-  color: #c62828;
-  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
   margin-left: 8px;
+  background-color: #ffebee;
+  border: 1.5px solid #ef9a9a;
+  border-radius: 50%;
+  color: #c62828;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  vertical-align: middle;
 }
 .remove-participant:hover {
-  color: #b71c1c;
+  background-color: #ef9a9a;
+  color: white;
+  border-color: #c62828;
+  transform: scale(1.15);
+  box-shadow: 0 2px 8px rgba(198, 40, 40, 0.3);
+}
+.remove-participant:active {
+  transform: scale(0.95);
+  transition: all 0.1s ease;
 }
 .participants .none {
   font-style: italic;
